@@ -1,0 +1,147 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.chat-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out;
+}
+
+.chat-icon:hover {
+  transform: scale(1.1);
+}
+
+.chat-icon img {
+  width: 60px;
+}
+
+.online-indicator {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  background-color: green; /* Set your desired color */
+  border-radius: 50%;
+  border: 2px solid white; /* Add a border for better visibility */
+}
+
+.message-box {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 300px;
+  height: 400px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  background-color: #ffff;
+  color: #464646;
+  border: 1px solid #9a3b3b;
+
+  background-image: url("./images/title/logo.jpg");
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.close-btn {
+  margin-top: 5px;
+  margin-left: 66%;
+  cursor: pointer;
+  padding: 5px;
+  background-color: #9a3b3b;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  width: 30%;
+  font-weight: bold;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.close-btn:hover {
+  background-color: #c0392b;
+}
+
+.chat-content {
+  padding: 10px;
+  height: 300px;
+  overflow-y: auto;
+}
+
+.chat-input {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #9a3b3b;
+  border-radius: 5px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease-in-out;
+  color: #333;
+  background-color: #fff;
+}
+
+.chat-input:focus {
+  border-color: #9a3b3b;
+}
+
+.message {
+  margin-bottom: 10px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.user-message {
+  color: #333;
+  background-color: #ecf0f1;
+  border-radius: 15px 15px 0 15px;
+  padding: 15px;
+  display: inline-block;
+  max-width: 80%;
+}
+p {
+  font-size: 15px;
+}
+
+.send-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.form-group {
+  position: relative;
+}
+
+.send-icon {
+  position: absolute;
+  top: 50%;
+  right: 25px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: maroon;
+}
+
+.send-icon:hover {
+  opacity: 0.8;
+}
