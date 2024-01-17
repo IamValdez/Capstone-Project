@@ -1,1 +1,1 @@
-[![Landing Page](Landing-Page/Landing-Page.png)](Landing-Page/Landing-Page.png)
+[![Landing Page](Landing-Page/view-page.png)](Landing-Page/view-page.png)
