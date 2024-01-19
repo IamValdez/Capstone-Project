@@ -26,19 +26,8 @@ include('faculty/includes/dbconnection.php');
 
         <link href="css/templatemo-medic-care.css" rel="stylesheet">
         <script>
-function getfacultys(val) {
-     alert(val);
-$.ajax({
 
-type: "POST",
-url: "get_facultys.php",
-data:'sp_id='+val,
-success: function(data){
-$("#facultylist").html(data);
-}
-});
-}
-</script>
+            
     </head>
 
     
