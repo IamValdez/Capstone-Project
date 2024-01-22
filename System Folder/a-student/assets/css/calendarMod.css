@@ -1,0 +1,25 @@
+/* Styles for the widget and header */
+.widget {
+  border: 1px solid #ddd; /* Add a border */
+  border-radius: 10px; /* Optional: Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Box shadow */
+}
+
+.widget-header {
+  background-color: #9a3b3b; /* Header background color */
+  color: white; /* Header text color */
+  padding: 20px;
+  border-radius: 10px 10px 0 0; /* Optional: Rounded corners for top */
+}
+
+.widget-header h3 {
+  margin: 0;
+  font-size: 24px;
+}
+
+/* Styles for the calendar */
+#calendar {
+  background-color: #f9f9f9; /* Calendar background color */
+  padding: 20px;
+  border-radius: 0 0 10px 10px; /* Optional: Rounded corners for bottom */
+}
