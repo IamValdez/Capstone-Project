@@ -40,7 +40,7 @@ if (isset($_POST['login'])) {
     $email = $_POST['email'];
     $password = md5($_POST['password']);
     
-    $sql = "SELECT ID, Email FROM tblfaculty WHERE Email=:email AND Password=:password";
+    $sql = "SELECT ID, user_ID FROM tblfaculty WHERE user_ID=:email AND Password=:password";
     $query = $dbh->prepare($sql);
     $query->bindParam(':email', $email, PDO::PARAM_STR);
     $query->bindParam(':password', $password, PDO::PARAM_STR);
@@ -51,7 +51,7 @@ if (isset($_POST['login'])) {
     if ($query->rowCount() > 0) {
         foreach ($results as $result) {
             $_SESSION['famsid'] = $result->ID;
-            $_SESSION['famsemailid'] = $result->Email;
+            $_SESSION['famsemailid'] = $result->user_ID;
         }
         $_SESSION['login'] = $_POST['email'];
     
@@ -96,29 +96,48 @@ if (isset($_POST['login'])) {
     }
 
 
-else {
+    else {
         // Increment login attempts
         $_SESSION['login_attempts']++;
         echo '<script>';
         echo 'document.addEventListener("DOMContentLoaded", function() {';
+    
+        // First SweetAlert
         echo 'Swal.fire({
-                   
-                    title: "Error!",
-                    text: " The username or password is incorrect or invalid. ",
-                    icon: "error",
-                    confirmButtonColor: "#3085d6",
-                    confirmButtonText: "OK",
-                    customClass: {
-                        container: "custom-sweetalert-container",
-                        popup: "custom-sweetalert-popup",
-                        title: "custom-sweetalert-title",
-                        text: "custom-sweetalert-text",
-                        
-                        confirmButton: "custom-sweetalert-confirm-button"
-                    }
-                })';
+            icon: "question",
+            title: "Verifying Your Account...",
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 5000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+            },
+        });';
+    
+        // Delay before showing the second SweetAlert
+        echo 'setTimeout(function() {';
+        echo 'Swal.fire({
+            title: "Error!",
+            text: " The username or password is incorrect or invalid. ",
+            icon: "error",
+            confirmButtonColor: "#3085d6",
+            confirmButtonText: "OK",
+            customClass: {
+                container: "custom-sweetalert-container",
+                popup: "custom-sweetalert-popup",
+                title: "custom-sweetalert-title",
+                text: "custom-sweetalert-text",
+                confirmButton: "custom-sweetalert-confirm-button"
+            }
+        });';
+        echo '}, 4000);';
+    
         echo '});';
-        echo '</script>';;
+        echo '</script>';
+    
         if ($_SESSION['login_attempts'] >= 3) {
             // Display the cooldown and hide the login attempts
             echo "<script>
@@ -137,7 +156,7 @@ else {
 <html lang="en">
 <head>
 
-    <title>Faculty Sign in</title>
+    <title>Student Sign in</title>
     <link rel="icon" href="./images/title/logo.jpg">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.min.css">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.min.js"></script>
@@ -186,7 +205,7 @@ else {
     <h4 class="form-title m-b-xl text-center">Sign In With Your Student Account</h4>
     <form method="post" name="login">
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="Enter Registered Email ID" required="true" name="email">
+            <input type="text" class="form-control" placeholder="Enter Registered Student ID" required="true" name="email">
         </div>
 
         <div class="form-group password-group">
@@ -283,4 +302,4 @@ if ($_SESSION['login_attempts'] >= 3) {
     };
 </script>
 
-<!-- ... Rest of the HTML code ... -->
+
