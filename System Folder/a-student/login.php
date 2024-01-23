@@ -185,10 +185,12 @@ if (isset($_POST['login'])) {
       position: relative;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a subtle box shadow */
     }
+    
 
 </style>
 
 <body>
+    
 
 
     <div id="back-to-home">
@@ -197,11 +199,16 @@ if (isset($_POST['login'])) {
     <div class="simple-page-wrap">
         <div class="simple-page-logo animated swing">
 
+        
+            
+
         <span style="color: white"><i class="fa fa-gg"></i></span>
                 <span style="color: white">ST. VICENT COLLEGE OF CABUYAO</span>
 
         </div><!-- logo -->
-        <div class="simple-page-form animated flipInY" id="login-form">
+        <div class="simple-page-form" style = "background-color: white"  id="login-form">
+
+        
     <h4 class="form-title m-b-xl text-center">Sign In With Your Student Account</h4>
     <form method="post" name="login">
         <div class="form-group">
@@ -216,6 +223,7 @@ if (isset($_POST['login'])) {
         <input type="submit" class="btn btn-warning" name="login" value="Sign In" id="signin-btn">
     </form>
     <br>
+    
     <div id="login-attempts">
         <?php
 if ($_SESSION['login_attempts'] < 3) {
