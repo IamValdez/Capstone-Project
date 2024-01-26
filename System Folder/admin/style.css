@@ -1,0 +1,18 @@
+.graphBox {
+  position: relative;
+  width: 100%;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 35% 1fr;
+  grid-gap: 10px;
+  grid-column-gap: 50px;
+}
+
+.graphBox .box {
+  position: relative;
+  background: #fff;
+  padding: 20px;
+  width: 98%;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+}
